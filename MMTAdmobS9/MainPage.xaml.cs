@@ -1,5 +1,5 @@
-﻿using Plugin.MauiMTAdmob;
-using Plugin.MauiMTAdmob.Extra;
+﻿using Plugin.MauiMtAdmob;
+using Plugin.MauiMtAdmob.Extra;
 using System.Diagnostics;
 
 namespace MMTAdmobSample9

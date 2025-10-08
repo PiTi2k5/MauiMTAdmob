@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Plugin.MauiMTAdmob;
+using Plugin.MauiMtAdmob;
 
 namespace MMTAdmobSample9;
 

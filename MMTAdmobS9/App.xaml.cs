@@ -1,4 +1,4 @@
-﻿using Plugin.MauiMTAdmob;
+﻿using Plugin.MauiMtAdmob;
 
 namespace MMTAdmobSample9;
 

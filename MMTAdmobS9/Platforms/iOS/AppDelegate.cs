@@ -1,5 +1,5 @@
 ﻿using Foundation;
-using Plugin.MauiMTAdmob;
+using Plugin.MauiMtAdmob;
 using UIKit;
 
 namespace MMTAdmobSample9;
@@ -21,7 +21,7 @@ public class AppDelegate : MauiUIApplicationDelegate
         //If you have a license code and for some reason you want to skip the consent dialog or it doesn't work for you, uncomment the line below:
         //CrossMauiMTAdmob.Current.SkipConsent = true;
         
-        CrossMauiMTAdmob.Current.Init(license, NATIVEADS_AD_UNIT_ID, OPENADS_AD_UNIT_ID, areOpenAdsEnabled, false, deviceIds, Plugin.MauiMTAdmob.Extra.DebugGeography.DEBUG_GEOGRAPHY_EEA, initialiseConsentAtStartup);
+        CrossMauiMTAdmob.Current.Init(license, NATIVEADS_AD_UNIT_ID, OPENADS_AD_UNIT_ID, areOpenAdsEnabled, false, deviceIds, Plugin.MauiMtAdmob.Extra.DebugGeography.DEBUG_GEOGRAPHY_EEA, initialiseConsentAtStartup);
     }
 
     public override void OnActivated(UIApplication application)

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMTAdmob"
+             xmlns:controls="clr-namespace:Plugin.MauiMtAdmob.Controls;assembly=Plugin.MauiMtAdmob"
              x:Class="MMTAdmobSample9.MainPage">
 
     <ContentPage.Resources>
@@ -55,19 +55,11 @@
             </Border>
         </ControlTemplate>
         <ControlTemplate x:Key="TestTemplate5">
-                <!-- <StackLayout> -->
-                <!--     <controls:MTMediaView Grid.RowSpan="2" AutomationId="Media"/> -->
-                <!--     <Label AutomationId="Attribution" Text="Ad" FontAttributes="Bold" TextColor="White" BackgroundColor="#FFCC66" FontSize="14" HorizontalOptions="Start" VerticalOptions="Start"/> -->
-                <!--     <Label Grid.Column="1" AutomationId="Headline" FontAttributes="Bold" FontSize="12" /> -->
-                <!--     <Label Grid.Row="1" Grid.Column="1" AutomationId="Body" HorizontalOptions="EndAndExpand" FontSize="14"/> -->
-                <!-- </StackLayout> -->
-
-            <!-- <Label Grid.Row="1" Grid.Column="1" AutomationId="Body" HorizontalOptions="EndAndExpand" FontSize="14" TextColor="Red"/> -->
-
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="A"/>
-                    <Label Text="B"/>
-                    <Label Text="C"/>
+                <StackLayout>
+                    <controls:MTMediaView Grid.RowSpan="2" AutomationId="Media"/>
+                    <Label AutomationId="Attribution" Text="Ad" FontAttributes="Bold" TextColor="White" BackgroundColor="#FFCC66" FontSize="14" HorizontalOptions="Start" VerticalOptions="Start"/>
+                    <Label Grid.Column="1" AutomationId="Headline" FontAttributes="Bold" FontSize="12" />
+                    <Label Grid.Row="1" Grid.Column="1" AutomationId="Body" HorizontalOptions="EndAndExpand" FontSize="14"/>
                 </StackLayout>
                 
         </ControlTemplate>
@@ -111,7 +103,7 @@
                 <Frame Padding="5">
                     <StackLayout HeightRequest="250">
                         <Label Text="Native ads" />
-                        <controls:MTNativeAdView BackgroundColor="Transparent" x:Name="myNativeAds" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ContentTemplate="{StaticResource Key=TestTemplate5}"/>
+                        <controls:MTNativeAdView BackgroundColor="Transparent" x:Name="myNativeAds" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ContentTemplate="{StaticResource Key=TestTemplate1}"/>
 
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                             <Button Text="Load Native Ad" Clicked="LoadNative" Margin="5" HorizontalOptions="Center"/>

@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Plugin.MauiMTAdmob;
+using Plugin.MauiMtAdmob;
 
 namespace MMTAdmobSample9;
 
@@ -26,7 +26,7 @@ public class MainActivity : MauiAppCompatActivity
 
         //If you have a license code:            
 
-        CrossMauiMTAdmob.Current.Init(this, appId, license, NATIVEADS_AD_UNIT_ID,OPENADS_AD_UNIT_ID, enableOpenAds, false, deviceId, true, Plugin.MauiMTAdmob.Extra.DebugGeography.DEBUG_GEOGRAPHY_EEA, initialiseConsentAtStartup);
+        CrossMauiMTAdmob.Current.Init(this, appId, license, NATIVEADS_AD_UNIT_ID,OPENADS_AD_UNIT_ID, enableOpenAds, false, deviceId, true, Plugin.MauiMtAdmob.Extra.DebugGeography.DEBUG_GEOGRAPHY_EEA, initialiseConsentAtStartup);
 
         //If you don't have a license code, you can use the following line instead:
         //CrossMauiMTAdmob.Current.Init(this, appId);
