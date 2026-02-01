@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTAdmobDroidSample", "MTAdm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMTAdmobS9", "MMTAdmobS9\MMTAdmobS9.csproj", "{9A190C15-E7C3-EE58-D753-B0C4BF40ADB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMTAdmobS8", "MMTAdmobS8\MMTAdmobS8.csproj", "{C84B0FB2-82DD-1A71-3DCC-A46E42A02E7A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,12 +23,6 @@ Global
 		{9A190C15-E7C3-EE58-D753-B0C4BF40ADB1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{9A190C15-E7C3-EE58-D753-B0C4BF40ADB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A190C15-E7C3-EE58-D753-B0C4BF40ADB1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C84B0FB2-82DD-1A71-3DCC-A46E42A02E7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C84B0FB2-82DD-1A71-3DCC-A46E42A02E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C84B0FB2-82DD-1A71-3DCC-A46E42A02E7A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{C84B0FB2-82DD-1A71-3DCC-A46E42A02E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C84B0FB2-82DD-1A71-3DCC-A46E42A02E7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C84B0FB2-82DD-1A71-3DCC-A46E42A02E7A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

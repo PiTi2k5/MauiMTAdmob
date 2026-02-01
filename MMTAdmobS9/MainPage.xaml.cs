@@ -159,43 +159,43 @@ namespace MMTAdmobSample9
             CrossMauiMTAdmob.Current.OnConsentInfoUpdateFailure -= Current_OnConsentInfoUpdateFailure;
         }
 
-        private void Current_OnRewardImpression(object sender, EventArgs e)
+        private void Current_OnRewardImpression(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Reward Impression" });
             Debug.WriteLine("Current_OnRewardImpression");
         }
 
-        private void Current_OnRewardClosed(object sender, EventArgs e)
+        private void Current_OnRewardClosed(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Reward Closed" });
             Debug.WriteLine("Current_OnRewardClosed");
         }
 
-        private void Current_OnRewardOpened(object sender, EventArgs e)
+        private void Current_OnRewardOpened(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Reward Opened" });
             Debug.WriteLine("Current_OnRewardOpened");
         }
 
-        private void Current_OnUserEarnedReward(object sender, MTEventArgs e)
+        private void Current_OnUserEarnedReward(object? sender, MTEventArgs e)
         {
             MyStack.Add(new Label { Text = "On User Earned Reward" });
             Console.WriteLine($"Current_OnUserEarnedReward: {e.RewardType} - {e.RewardAmount}");
         }
 
-        private void Current_OnRewardFailedToShow(object sender, MTEventArgs e)
+        private void Current_OnRewardFailedToShow(object? sender, MTEventArgs e)
         {
             MyStack.Add(new Label { Text = "On Reward Failed To Show" });
             Console.WriteLine($"Current_OnRewardFailedToShow: {e.ErrorCode} - {e.ErrorMessage}");
         }
 
-        private void Current_OnInterstitialClosed(object sender, EventArgs e)
+        private void Current_OnInterstitialClosed(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Interstitial Closed" });
             Debug.WriteLine("OnInterstitialClosed");
         }
 
-        private void Current_OnInterstitialOpened(object sender, EventArgs e)
+        private void Current_OnInterstitialOpened(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Interstitial Opened" });
             Debug.WriteLine("OnInterstitialOpened");
@@ -213,32 +213,32 @@ namespace MMTAdmobSample9
             Debug.WriteLine("OnInterstitialClicked");
         }
 
-        private void Current_OnInterstitialLoaded(object sender, EventArgs e)
+        private void Current_OnInterstitialLoaded(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Interstitial Loaded" });
             myLabel.Text = "Interstitial loaded: true";
             Debug.WriteLine("OnInterstitialLoaded");
         }
-        private void Current_OnInterstitialFailedToLoad(object sender, MTEventArgs e)
+        private void Current_OnInterstitialFailedToLoad(object? sender, MTEventArgs e)
         {
             MyStack.Add(new Label { Text = "On Interstitial Failed To Load" });
             myLabel.Text = "Interstitial loaded: false";
             Debug.WriteLine($"Current_OnInterstitialFailedToLoad: {e.ErrorCode} - {e.ErrorMessage}");
         }
 
-        private void Current_OnInterstitialFailedToShow(object sender, MTEventArgs e)
+        private void Current_OnInterstitialFailedToShow(object? sender, MTEventArgs e)
         {
             MyStack.Add(new Label { Text = "On Interstitial Failed To Show" });
             Console.WriteLine($"Current_OnInterstitialFailedToShow: {e.ErrorCode} - {e.ErrorMessage}");
         }
 
-        private void Current_OnRewardedAdLoaded(object sender, EventArgs e)
+        private void Current_OnRewardedAdLoaded(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Rewarded Video Ad Loaded" });
             myLabel.Text = "Rewarded loaded: true";
             Debug.WriteLine("OnRewardedVideoAdLoaded");
         }
-        private void Current_OnRewardedAdFailedToLoad(object sender, MTEventArgs e)
+        private void Current_OnRewardedAdFailedToLoad(object? sender, MTEventArgs e)
         {
             MyStack.Add(new Label { Text = "On Rewarded Video Ad Failed To Load" });
             myLabel.Text = "Rewarded loaded: false";
@@ -416,50 +416,92 @@ namespace MMTAdmobSample9
             var canShow = CrossMauiMTAdmob.Current.CanShowLimitedAds();
             MyStack.Add(new Label { Text = $"LA: {canShow}" });
         }
+        
+        private async void LoadConsent_OnClicked(object sender, EventArgs e)
+        {
+            CrossMauiMTAdmob.Current.InitialiseConsent();
+            MyStack.Add(new Label { Text = "Consent loading initiated" });
+        }
 
-        private void Current_OnAppOpenAdLoaded(object sender, EventArgs e)
+        private async void RequestATT_OnClicked(object sender, EventArgs e)
+        {
+            var result = await CrossMauiMTAdmob.Current.RequestTrackingAuthorizationAsync();
+            MyStack.Add(new Label { Text = $"ATT Request Result: {result}" });
+        }
+
+        private void GetATTStatus_OnClicked(object sender, EventArgs e)
+        {
+            var status = CrossMauiMTAdmob.Current.GetTrackingAuthorizationStatus();
+            MyStack.Add(new Label { Text = $"ATT Status: {status}" });
+        }
+        
+        private void GetSdkVersion_OnClicked(object sender, EventArgs e)
+        {
+            var version = CrossMauiMTAdmob.Current.GetSdkVersion();
+            myLabel.Text = $"SDK Version: {version}";
+        }
+        
+        private void MuteAds_OnClicked(object sender, EventArgs e)
+        {
+            CrossMauiMTAdmob.Current.SetAppMuted(true);
+            MyStack.Add(new Label { Text = "Ads muted" });
+        }
+
+        private void UnmuteAds_OnClicked(object sender, EventArgs e)
+        {
+            CrossMauiMTAdmob.Current.SetAppMuted(false);
+            MyStack.Add(new Label { Text = "Ads unmuted" });
+        }
+
+        private void SetVolume_OnClicked(object sender, EventArgs e)
+        {
+            float volume = (float)volumeSlider.Value;
+            CrossMauiMTAdmob.Current.SetAppVolume(volume);
+            MyStack.Add(new Label { Text = $"Volume set to {volume:F2}" });
+        }
+        private void Current_OnAppOpenAdLoaded(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On App Open Ad Loaded" });
             Debug.WriteLine("OnAppOpenAdLoaded");
         }
 
-        private void Current_OnAppOpenOpened(object sender, EventArgs e)
+        private void Current_OnAppOpenOpened(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On App Open Opened" });
             Debug.WriteLine("OnAppOpenOpened");
         }
 
-        private void Current_OnAppOpenClosed(object sender, EventArgs e)
+        private void Current_OnAppOpenClosed(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On App Open Closed" });
             Debug.WriteLine("OnAppOpenClosed");
         }
 
-        private void Current_OnAppOpenFailedToLoad(object sender, MTEventArgs e)
+        private void Current_OnAppOpenFailedToLoad(object? sender, MTEventArgs e)
         {
             MyStack.Add(new Label { Text = "On App Open Failed To Load" });
             Debug.WriteLine($"Current_OnAppOpenFailedToLoad: {e.ErrorCode} - {e.ErrorMessage}");
         }
 
-        private void Current_OnAppOpenFailedToShow(object sender, MTEventArgs e)
+        private void Current_OnAppOpenFailedToShow(object? sender, MTEventArgs e)
         {
             MyStack.Add(new Label { Text = "On App Open Failed To Show" });
             Console.WriteLine($"Current_OnAppOpenFailedToShow: {e.ErrorCode} - {e.ErrorMessage}");
         }
 
-        private void Current_OnAppOpenImpression(object sender, EventArgs e)
+        private void Current_OnAppOpenImpression(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On App Open Impression" });
             Debug.WriteLine("Current_OnAppOpenImpression");
         }
 
-        private void Current_OnAppOpenClicked(object sender, EventArgs e)
+        private void Current_OnAppOpenClicked(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On App Open Clicked" });
             Debug.WriteLine("Current_OnAppOpenClicked");
         }
 
-        private void Current_OnMobileAdsInitialized(object sender, EventArgs e)
+        private void Current_OnMobileAdsInitialized(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Mobile Ads Initialized" });
             Debug.WriteLine("Current_OnMobileAdsInitialized");
@@ -476,37 +518,37 @@ namespace MMTAdmobSample9
             myNativeAds.ShowNativeAd();
             Debug.WriteLine("Show Native Ad");
         }
-        private void Current_OnNativeAdLoaded(object sender, EventArgs e)
+        private void Current_OnNativeAdLoaded(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Native Ad Loaded" });
             Debug.WriteLine("Current_OnNativeAdLoaded");
         }
 
-        private void Current_OnNativeAdFailedToLoad(object sender, MTEventArgs e)
+        private void Current_OnNativeAdFailedToLoad(object? sender, MTEventArgs e)
         {
             MyStack.Add(new Label { Text = "On Native Ad Failed To Load" });
             Debug.WriteLine($"Current_OnNativeAdFailedToLoad: {e.ErrorCode} - {e.ErrorMessage}");
         }
 
-        private void Current_OnNativeAdImpression(object sender, EventArgs e)
+        private void Current_OnNativeAdImpression(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Native Ad Impression" });
             Debug.WriteLine("Current_OnNativeAdImpression");
         }
 
-        private void Current_OnNativeAdClicked(object sender, EventArgs e)
+        private void Current_OnNativeAdClicked(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Native Ad Clicked" });
             Debug.WriteLine("Current_OnNativeAdClicked");
         }
 
-        private void Current_OnNativeAdOpened(object sender, EventArgs e)
+        private void Current_OnNativeAdOpened(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Native Ad Opened" });
             Debug.WriteLine("Current_OnNativeAdOpened");
         }
 
-        private void Current_OnNativeAdClosed(object sender, EventArgs e)
+        private void Current_OnNativeAdClosed(object? sender, EventArgs e)
         {
             MyStack.Add(new Label { Text = "On Native Ad Closed" });
             Debug.WriteLine("Current_OnNativeAdClosed");
@@ -519,3 +561,4 @@ namespace MMTAdmobSample9
         }
     }
 }
+
